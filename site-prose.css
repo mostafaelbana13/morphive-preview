@@ -1,0 +1,49 @@
+:root { --teal:#092F35; --mint:#37D5B0; --mist:#EAF5F1; --white:#F8FAF9; --ink:#171C20; --muted:#4A5A5E; --line:rgba(9,47,53,.12); }
+.prose { max-width: 72ch; font-size: 1.06em; }
+.prose > * + * { margin-top: 1.05em; }
+.prose p { margin: 0; }
+.prose h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--teal); margin: 1.9em 0 .4em; max-width: none; scroll-margin-top: 90px; }
+.prose h3 { font-size: 1.25rem; color: var(--teal); margin: 1.5em 0 .3em; }
+.prose ul, .prose ol { padding-inline-start: 1.4em; display: grid; gap: .45em; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li::marker { color: var(--mint); font-weight: 700; }
+.prose strong { color: var(--teal); }
+.prose a { color: var(--teal); font-weight: 600; text-decoration-color: var(--mint); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.prose blockquote { margin-inline: 0; background: var(--mist); border-inline-start: 4px solid var(--mint); border-radius: 12px; padding: 16px 20px; }
+.prose blockquote p { margin: 0; }
+/* ===== إنفوجرافيك داخل المقالات ===== */
+.ig { margin: 2.2em 0 !important; background: var(--teal); color: var(--white); border-radius: 22px; padding: clamp(22px, 3.5vw, 36px); position: relative; overflow: hidden; }
+.ig::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(55,213,176,.18) 1.2px, transparent 1.3px); background-size: 16px 16px; -webkit-mask-image: linear-gradient(135deg, #000, transparent 60%); mask-image: linear-gradient(135deg, #000, transparent 60%); pointer-events: none; }
+.ig > * { position: relative; }
+.ig__k { font-family: 'Kufam', sans-serif; font-size: .8em; color: var(--mint); letter-spacing: .04em; margin: 0 0 4px !important; }
+.ig__t { font-weight: 800; font-size: clamp(1.15rem, 2.2vw, 1.45rem); margin: 0 0 20px !important; color: var(--white); }
+.prose .ig strong { color: var(--mint); }
+.ig__steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; counter-reset: s; list-style: none !important; padding: 0 !important; margin: 0 !important; }
+.ig__steps li { background: rgba(248,250,249,.07); border: 1px solid rgba(248,250,249,.1); border-radius: 14px; padding: 14px; display: grid; gap: 6px; align-content: start; position: relative; }
+.ig__steps li::marker { content: none; }
+.ig__steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: 'Kufam', sans-serif; font-weight: 700; color: var(--mint); font-size: 1.3rem; line-height: 1; }
+.ig__steps b { font-size: 1.02em; }
+.ig__steps span { font-size: .84em; color: rgba(248,250,249,.7); line-height: 1.5; }
+.ig__steps .is-hot { border-color: var(--mint); background: rgba(55,213,176,.12); }
+.ig__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ig__col { border-radius: 16px; padding: 18px; background: rgba(248,250,249,.06); border: 1px solid rgba(248,250,249,.1); }
+.ig__col--hot { background: var(--mint); color: var(--teal); border-color: var(--mint); }
+.ig__col h4 { margin: 0 0 10px; font-size: 1.05em; }
+.ig__col ul { list-style: none !important; padding: 0 !important; display: grid; gap: 6px; margin: 0; }
+.ig__col li { font-size: .92em; }
+.ig__col li::marker { content: none; }
+.ig__calc { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; align-items: stretch; }
+.ig__calc div { border-radius: 16px; padding: 16px; background: rgba(248,250,249,.07); display: grid; gap: 4px; align-content: start; }
+.ig__calc b { font-family: 'Kufam', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--mint); line-height: 1.1; direction: ltr; text-align: start; }
+.ig__calc span { font-size: .85em; color: rgba(248,250,249,.75); }
+.ig__calc .is-hot { background: var(--mint); }
+.ig__calc .is-hot b, .ig__calc .is-hot span { color: var(--teal); }
+.ig__bars { display: grid; gap: 14px; }
+.ig__bar { display: grid; grid-template-columns: minmax(90px, 160px) 1fr auto; gap: 12px; align-items: center; font-size: .92em; }
+.ig__bar i { height: 14px; border-radius: 99px; background: rgba(248,250,249,.1); position: relative; overflow: hidden; }
+.ig__bar i::after { content: ''; position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--w); background: var(--mint); border-radius: inherit; }
+.ig__bar b { font-family: 'Kufam', sans-serif; color: var(--mint); direction: ltr; }
+.ig__src { font-size: .78em; color: rgba(248,250,249,.55); margin: 16px 0 0 !important; }
+@media (max-width: 640px) { .ig__cols { grid-template-columns: 1fr; } .ig__bar { grid-template-columns: 1fr auto; } .ig__bar i { grid-column: 1 / -1; grid-row: 2; } }
+
